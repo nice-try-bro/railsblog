@@ -4,6 +4,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    render text: params.each.map(&:inspect).join("\n")
+    @post = Post.new(post_params)
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
