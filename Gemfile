@@ -34,3 +34,6 @@ end
 
 # Use pre-commit to prevent commiting bad things
 gem 'pre-commit'
+
+# Use heroku
+gem 'rails_12factor', group: :production
