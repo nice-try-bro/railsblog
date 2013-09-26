@@ -37,3 +37,6 @@ gem 'pre-commit'
 
 # Use heroku
 gem 'rails_12factor', group: :production
+
+# Use bullet to detect n + 1 problem
+gem "bullet", :group => "development"
