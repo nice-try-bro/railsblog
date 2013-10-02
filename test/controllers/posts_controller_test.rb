@@ -7,7 +7,7 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "#create" do
-    #TODO: use generators
+    #TODO: use special tools for generating data
     new_post = { :post => { title: 'Some Title', text: 'Some text' } }
     post :create, new_post
     assert_response :redirect
