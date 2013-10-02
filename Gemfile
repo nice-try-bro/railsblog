@@ -43,3 +43,6 @@ gem 'rails_12factor', group: :production
 
 # Use bullet to detect n + 1 problem
 gem 'bullet', :group => "development"
+
+# Used for generating rails guides
+gem 'RedCloth'
