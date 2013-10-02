@@ -46,3 +46,5 @@ gem 'bullet', :group => "development"
 
 # Used for generating rails guides
 gem 'RedCloth'
+
+gem 'factory_girl_rails'
