@@ -34,3 +34,4 @@ pickle-email-*.html
 .project
 *.sublime-project
 *.sublime-workspace
+Gemfile.lock
