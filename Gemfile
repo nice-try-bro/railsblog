@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Use ruby 2.0.0
-ruby "2.0.0"
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -42,4 +42,4 @@ gem 'pre-commit'
 gem 'rails_12factor', group: :production
 
 # Use bullet to detect n + 1 problem
-gem "bullet", :group => "development"
+gem 'bullet', :group => "development"
