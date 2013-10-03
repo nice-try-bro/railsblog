@@ -33,4 +33,7 @@ Railsblog::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Set logger level to debug
+  config.log_level = :debug
 end
