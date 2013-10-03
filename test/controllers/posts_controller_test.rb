@@ -1,11 +1,6 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
-  #FIXME: it should be owned by object creator
-  def create_post_attributes
-    attributes_for(:post)
-  end
-
   test "#new" do
     get :new
     assert_response :success
@@ -17,8 +12,8 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "#create" do
-    new_post = create_post_attributes
-    post :create, { post: new_post }
+    new_post = build :post
+    post :create, { :post => new_post.attributes }
     assert_response :redirect
   end
 
