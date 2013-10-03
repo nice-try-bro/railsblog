@@ -41,4 +41,13 @@ class PostsControllerTest < ActionController::TestCase
     get :create, :id => new_post.id
     assert_response :success
   end
+
+  test "#destroy" do
+    new_post = create :post
+    post_id = new_post.id
+    delete :destroy, :id => new_post.id
+    assert_response :redirect
+    deleted_post = Post.find_by(:id => post_id)
+    refute deleted_post
+  end
 end
