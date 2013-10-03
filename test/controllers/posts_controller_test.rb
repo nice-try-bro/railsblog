@@ -28,4 +28,10 @@ class PostsControllerTest < ActionController::TestCase
     altered_post = Post.find_by(:title => new_title)
     assert altered_post
   end
+
+  test "#show" do
+    new_post = create :post
+    get :show, :id => new_post.id
+    assert_response :success
+  end
 end
