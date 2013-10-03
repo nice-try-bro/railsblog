@@ -21,11 +21,12 @@ class PostsControllerTest < ActionController::TestCase
     new_post = create_post_attributes
     post :create, { post: new_post }
     same_post = Post.find_by(:title => new_post[:title])
-    same_post.title = 'Some Other Title'
+    new_title = 'Some Other Title'
+    same_post.title = new_title
     put :update, :id => same_post.id, :post => same_post.attributes
     assert_response :redirect
     #FIXME: it uses and tests real model, which considered to be bad
-    altered_post = Post.find_by(:title => 'Some Other Title')
+    altered_post = Post.find_by(:title => new_title)
     #FIXME: seems there should be one assertion per method
     assert altered_post
   end
