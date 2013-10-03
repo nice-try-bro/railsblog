@@ -18,10 +18,10 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "#update" do
-    new_post = create_post_attributes
-    post :create, { post: new_post }
-    same_post = Post.find_by(:title => new_post[:title])
-    new_title = 'Some Other Title'
+    new_post = create :post
+    old_title = new_post.title
+    same_post = Post.find_by(:title => old_title)
+    new_title = generate :title
     same_post.title = new_title
     put :update, :id => same_post.id, :post => same_post.attributes
     assert_response :redirect
