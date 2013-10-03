@@ -34,4 +34,11 @@ class PostsControllerTest < ActionController::TestCase
     get :show, :id => new_post.id
     assert_response :success
   end
+
+  #FIXME: extract common code from get methods tests
+  test "#edit" do
+    new_post = create :post
+    get :create, :id => new_post.id
+    assert_response :success
+  end
 end
