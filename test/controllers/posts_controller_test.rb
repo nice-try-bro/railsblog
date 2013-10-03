@@ -11,6 +11,11 @@ class PostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "#index" do
+    get :index
+    assert_response :success
+  end
+
   test "#create" do
     new_post = create_post_attributes
     post :create, { post: new_post }
