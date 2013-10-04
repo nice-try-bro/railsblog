@@ -12,10 +12,12 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "#create" do
-    new_post = build :post
+    post_title = generate :title
+    new_post = build :post, :title => post_title
     post :create, { :post => new_post.attributes }
     assert_response :redirect
-
+    saved_post = Post.find_by_title(post_title)
+    assert saved_post
   end
 
   test "#update" do
