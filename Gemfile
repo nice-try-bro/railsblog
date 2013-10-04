@@ -48,3 +48,9 @@ gem 'bullet', :group => "development"
 gem 'RedCloth'
 
 gem 'factory_girl_rails'
+
+# To be able to determine test coverage
+gem 'coveralls', require: false
+
+# used for per-environment config
+gem 'configus'

@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
 
-  http_basic_authenticate_with :name => "dhh", :password => "secret",
-                               :only => :destroy
+  unless Rails.env.test?
+    http_basic_authenticate_with :name => configus.user, :password => configus.password,
+                                 :only => :destroy
+  end
 
   def create
     @post = Post.find(params[:post_id])

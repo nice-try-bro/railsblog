@@ -26,4 +26,11 @@ Railsblog::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # Set log level to debug
+  config.lof_level = :debug
+
+  ActionDispatch::Reloader.to_prepare do
+    load Rails.root.join('lib/configus.rb')
+  end
 end
