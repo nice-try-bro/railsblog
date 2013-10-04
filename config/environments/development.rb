@@ -29,4 +29,8 @@ Railsblog::Application.configure do
 
   # Set log level to debug
   config.lof_level = :debug
+
+  ActionDispatch::Reloader.to_prepare do
+    load Rails.root.join('lib/configus.rb')
+  end
 end

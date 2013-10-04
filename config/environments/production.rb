@@ -77,4 +77,8 @@ Railsblog::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  ActionDispatch::Reloader.to_prepare do
+    load Rails.root.join('lib/configus.rb')
+  end
 end
