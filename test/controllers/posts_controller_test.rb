@@ -12,24 +12,20 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "#create" do
-    post_title = generate :title
-    new_post = build :post, :title => post_title
+    new_post = build :post
+    post_title = new_post.title
     post :create, { :post => new_post.attributes }
     assert_response :redirect
-    saved_post = Post.find_by_title(post_title)
-    assert saved_post
+    assert Post.exists?(:title => post_title)
   end
 
   test "#update" do
     new_post = create :post
-    old_title = new_post.title
-    same_post = Post.find_by_title(old_title)
     new_title = generate :title
-    same_post.title = new_title
-    put :update, :id => same_post.id, :post => same_post.attributes
+    new_post.title = new_title
+    put :update, :id => new_post.id, :post => new_post.attributes
     assert_response :redirect
-    altered_post = Post.find_by_title(new_title)
-    assert altered_post
+    assert Post.exists?(:title => new_title)
   end
 
   test "#show" do
@@ -48,9 +44,8 @@ class PostsControllerTest < ActionController::TestCase
   test "#destroy" do
     new_post = create :post
     post_id = new_post.id
-    delete :destroy, :id => new_post.id
+    delete :destroy, :id => post_id
     assert_response :redirect
-    deleted_post = Post.find_by(:id => post_id)
-    refute deleted_post
+    assert !Post.exists?(:id => post_id)
   end
 end
