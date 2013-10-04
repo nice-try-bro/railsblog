@@ -55,4 +55,4 @@ gem 'coveralls', require: false
 # used for per-environment config
 gem 'configus'
 
-gem 'haml'
+gem 'haml-rails'
