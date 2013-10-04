@@ -11,4 +11,14 @@ class CommentsControllerTest < ActionController::TestCase
     saved_comment = Comment.find_by_post_id(post_id)
     assert saved_comment
   end
+
+  test "#destroy" do
+    new_comment = create :comment
+    post_id = new_comment.post_id
+    comment_id = new_comment.id
+    delete :destroy, { :post_id => post_id, :id => comment_id }
+    assert_response :redirect
+    deleted_comment = Comment.find_by_id(comment_id)
+    refute deleted_comment
+  end
 end
