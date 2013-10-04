@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   unless Rails.env.test?
-    http_basic_authenticate_with :name => "dhh", :password => "secret",
+    http_basic_authenticate_with :name => configus.user, :password => configus.password,
                                  :only => :destroy
   end
 
