@@ -2,3 +2,4 @@
 {<img src="https://coveralls.io/repos/nice-try-bro/railsblog/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/nice-try-bro/railsblog]
 
 Railsblog based on http://guides.rubyonrails.org/getting_started.html
+Running on http://mighty-gorge-8937.herokuapp.com/
