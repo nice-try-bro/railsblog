@@ -3,7 +3,7 @@ Configus.build Rails.env do
     user 'dhh'
     password 'secret'
 
-    version '0.0.3'
+    version '0.0.4'
   end
 
   env :development, :parent => :production do
