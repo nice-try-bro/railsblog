@@ -27,7 +27,7 @@ class PostsControllerTest < ActionController::TestCase
     new_post.title = new_title
     put :update, :id => new_post.id, :post => new_post.attributes
     assert_response :redirect
-    updated_post = new_post.reload
+    new_post.reload
     assert_equal new_title, new_post.title
   end
 
