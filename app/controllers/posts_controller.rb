@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
 
-unless Rails.env.test?
-  http_basic_authenticate_with :name => configus.user, :password => configus.password,
-:except => [:index, :show]
-end
+  unless Rails.env.test?
+    http_basic_authenticate_with :name => configus.user, :password => configus.password,
+                                 :except => [:index, :show]
+  end
 
   def new
     @post = Post.new
