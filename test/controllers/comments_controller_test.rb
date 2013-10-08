@@ -3,12 +3,12 @@ require 'test_helper'
 class CommentsControllerTest < ActionController::TestCase
   test "#create" do
     new_post = create :post
-    post_id = new_post.id
-    new_comment = build :comment
-    #FIXME: implement without overriding associated post
-    post :create, { :post_id => post_id, :comment => new_comment.attributes }
+    new_comment = build :comment, :post => new_post
+    comment_body = new_comment.body
+    post :create, :post_id => new_comment.post_id, :comment => new_comment.attributes
     assert_response :redirect
-    assert Comment.exists?(:post_id => post_id)
+    created_comment = Comment.find_by(:body => comment_body)
+    assert created_comment
   end
 
   test "#destroy" do
