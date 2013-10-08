@@ -7,6 +7,7 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "#index" do
+    create :post
     get :index
     assert_response :success
   end
