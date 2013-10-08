@@ -35,3 +35,4 @@ pickle-email-*.html
 *.sublime-project
 *.sublime-workspace
 Gemfile.lock
+/config/spring.rb
