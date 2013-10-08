@@ -14,10 +14,11 @@ class PostsControllerTest < ActionController::TestCase
 
   test "#create" do
     new_post = build :post
-    post_title = new_post.title
-    post :create, { :post => new_post.attributes }
+    post_text = new_post.text
+    post :create, :post => new_post.attributes
     assert_response :redirect
-    assert Post.exists?(:title => post_title)
+    created_post = Post.find_by(:text => post_text)
+    assert_equal post_text, created_post.text
   end
 
   test "#update" do
