@@ -1,15 +1,21 @@
 - model_class = Post
+- comment_model_class = Comment
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %strong= model_class.human_attribute_name(:title) + ':'
-  %br
-  = @post.title
+  %h3= @post.title
 %p
-  %strong= model_class.human_attribute_name(:text) + ':'
-  %br
   = @post.text
+
+%h4=t '.title', :default => comment_model_class.model_name.human.pluralize.titleize
+-#FIXME: it may be done better
+= render @post.comments
+
+-#FIXME: should be translatable
+%h4= 'Add new ' + comment_model_class.model_name.human.downcase
+-#FIXME: it may be done better
+= render "comments/form"
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), posts_path, :class => 'btn'
