@@ -47,7 +47,6 @@ class PostsControllerTest < ActionController::TestCase
     post_id = new_post.id
     delete :destroy, :id => new_post.id
     assert_response :redirect
-    Rails.logger.debug "Deleted post: #{new_post}"
     #NOTE: new_post object may be used instead of post_id
     assert !Post.exists?(post_id)
   end

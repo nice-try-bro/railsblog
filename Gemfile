@@ -62,3 +62,6 @@ gem 'coveralls', require: false
 gem 'configus'
 
 gem 'haml-rails'
+
+# makes it simple to create good forms
+gem 'simple_form'
