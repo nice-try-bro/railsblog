@@ -3,6 +3,23 @@ source 'https://rubygems.org'
 # Use ruby 2.0.0
 ruby '2.0.0'
 
+group :production do
+  # Use heroku
+  gem 'rails_12factor'
+end
+
+group :development do
+  # Use bullet to detect n + 1 problem
+  gem 'bullet'
+end
+
+gem 'twitter-bootstrap-rails'
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -30,19 +47,8 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
 # Use pre-commit to prevent commiting bad things
 gem 'pre-commit'
-
-# Use heroku
-gem 'rails_12factor', group: :production
-
-# Use bullet to detect n + 1 problem
-gem 'bullet', :group => "development"
 
 # Used for generating rails guides
 gem 'RedCloth'
@@ -55,4 +61,4 @@ gem 'coveralls', require: false
 # used for per-environment config
 gem 'configus'
 
-gem 'haml'
+gem 'haml-rails'

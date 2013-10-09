@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
 
-unless Rails.env.test?
-  http_basic_authenticate_with :name => configus.user, :password => configus.password,
-:except => [:index, :show]
-end
+  unless Rails.env.test?
+    http_basic_authenticate_with :name => configus.user, :password => configus.password,
+                                 :except => [:index, :show]
+  end
 
   def new
     @post = Post.new
@@ -34,7 +34,7 @@ end
   def update
     @post = Post.find(params[:id])
 
-    if @post.update(params[:post].permit(:title, :text))
+    if @post.update(post_params)
       redirect_to @post
     else
       render 'edit'
