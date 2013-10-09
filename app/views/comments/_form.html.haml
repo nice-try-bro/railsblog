@@ -1,11 +1,7 @@
-= form_for [@post, @post.comments.build], :html => { :class => 'form' } do |f|
-  .control-group
-    = f.label :commenter, :class => 'control-label'
-    .controls
-      = f.text_field :commenter, :class => 'text_field'
-  .control-group
-    = f.label :body, :class => 'control-label'
-    .controls
-      = f.text_field :body, :class => 'text_field'
-  .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
+= simple_form_for [@post, @post.comments.build] do |f|
+  = f.input :commenter
+  = f.input :body
+
+  = f.button :submit
+  -#FIXME: should be translatable or have default attributes
+  = f.button :button, 'Cancel', :type => 'reset'
