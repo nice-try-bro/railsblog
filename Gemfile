@@ -65,3 +65,6 @@ gem 'haml-rails'
 
 # makes it simple to create good forms
 gem 'simple_form'
+
+# state machine provides states to control class behavior
+gem 'state_machine'
