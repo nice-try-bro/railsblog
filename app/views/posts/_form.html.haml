@@ -2,6 +2,7 @@
   = f.input :title
   = f.input :text
   = f.input :state, :as => :state
+  = f.input :picture, :as => :file
 
   = f.button :submit
   = link_to t('.cancel', :default => t("helpers.links.cancel")), posts_path, :class => 'btn'
