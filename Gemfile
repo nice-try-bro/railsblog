@@ -68,3 +68,6 @@ gem 'simple_form'
 
 # state machine provides states to control class behavior
 gem 'state_machine'
+
+# provides file uploader
+gem 'carrierwave'
