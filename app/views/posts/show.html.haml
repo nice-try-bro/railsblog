@@ -7,6 +7,8 @@
   %h3= @post.title
 %p
   = @post.text
+%p
+  %img{:src => @post.picture}
 
 %h4=t '.title', :default => comment_model_class.model_name.human.pluralize.titleize
 -#FIXME: it may be done better
