@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
   validates :title, :presence => true,
                     :length => { :minimum => 5 }
 
+  mount_uploader :picture, PictureUploader
+
   state_machine :initial => :hidden do
     event :publish do
       transition :hidden => :published
