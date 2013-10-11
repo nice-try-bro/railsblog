@@ -1,5 +1,8 @@
 en:
   simple_form:
+    labels:
+      post:
+        state_event: 'Set visibility'
     "yes": 'Yes'
     "no": 'No'
     required:
