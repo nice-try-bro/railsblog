@@ -1,7 +1,7 @@
 = simple_form_for @post, :html => { :class => 'form-horizontal' } do |f|
   = f.input :title
   = f.input :text
-  = f.input :state, :as => :state
+  = f.input :state_event, :as => :fsm_call
 
   = f.button :submit
   = link_to t('.cancel', :default => t("helpers.links.cancel")), posts_path, :class => 'btn'
