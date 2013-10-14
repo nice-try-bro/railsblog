@@ -5,6 +5,12 @@ class CommentsController < ApplicationController
                                  :only => :destroy
   end
 
+  def new
+    @post = Post.find(params[:post_id])
+    @parent_comment = @post.comments.find(params[:parent_id])
+    @comment = @post.comments.build(:parent_id => @parent_comment.id)
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
@@ -21,6 +27,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:commenter, :body)
+    params.require(:comment).permit(:commenter, :body, :parent_id)
   end
 end

@@ -11,8 +11,7 @@
   %img{:src => @post.picture}
 
 %h4=t '.title', :default => comment_model_class.model_name.human.pluralize.titleize
--#FIXME: it may be done better
-= render @post.comments
+= nested_comments @post.comments.arrange(:order => :created_at)
 
 -#FIXME: should be translatable
 %h4= 'Add new ' + comment_model_class.model_name.human.downcase
