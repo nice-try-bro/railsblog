@@ -1,0 +1,9 @@
+= simple_form_for [@post, @comment] do |f|
+  = f.input :parent_id, :as => :hidden
+
+  = f.input :commenter
+  = f.input :body
+
+  = f.button :submit
+  -#FIXME: should be translatable or have default attributes
+  = f.button :button, 'Cancel', :type => 'reset'

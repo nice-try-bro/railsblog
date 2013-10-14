@@ -71,3 +71,6 @@ gem 'state_machine'
 
 # provides file uploader
 gem 'carrierwave'
+
+# used for nested comments
+gem 'ancestry'
