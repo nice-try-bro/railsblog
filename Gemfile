@@ -74,3 +74,5 @@ gem 'carrierwave'
 
 # used for nested comments
 gem 'ancestry'
+
+gem 'cocoon'
