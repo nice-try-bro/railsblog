@@ -4,7 +4,7 @@ class FsmCallInput < SimpleForm::Inputs::CollectionInput
     input_options[:include_blank] ||= object.human_state_name
 
     @builder.collection_select(
-      attribute_name, collection, :event, :human_to_name,
+      attribute_name, collection, :event, :human_event,
       input_options, input_html_options
     )
   end
