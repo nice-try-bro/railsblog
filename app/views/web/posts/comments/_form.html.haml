@@ -1,4 +1,5 @@
-= simple_form_for [@post, @post.comments.build] do |f|
+= simple_form_for [@post, @post.comments.build],
+    :url => post_comments_path(@post) do |f|
   = f.input :commenter
   = f.input :body
 
