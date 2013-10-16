@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131011141202) do
+ActiveRecord::Schema.define(version: 20131016121737) do
 
-  create_table "comments", force: true do |t|
+  create_table "post_comments", force: true do |t|
     t.string   "commenter"
     t.text     "body"
     t.integer  "post_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20131011141202) do
     t.string   "ancestry"
   end
 
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "post_comments", ["post_id"], name: "index_post_comments_on_post_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
