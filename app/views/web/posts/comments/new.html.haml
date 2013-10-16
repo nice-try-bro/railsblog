@@ -1,0 +1,6 @@
+- model_class = Post::Comment
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.new', 'New %{model}'],
+  :model => model_class.model_name.human.titleize
+
+= render 'child_comment_form'

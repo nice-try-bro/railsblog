@@ -1,7 +1,11 @@
 Railsblog::Application.routes.draw do
 
-  resources :posts do
-    resources :comments
+  scope :module => 'web' do
+    resources :posts do
+      scope :module => 'posts' do
+        resources :comments, :only => [:index, :new, :create, :destroy]
+      end
+    end
   end
 
   get "welcome/index"
@@ -9,7 +13,7 @@ Railsblog::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'web/welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

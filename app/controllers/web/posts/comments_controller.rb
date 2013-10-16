@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Web::Posts::CommentsController < Web::Posts::ApplicationController
 
   unless Rails.env.test?
     http_basic_authenticate_with :name => configus.user, :password => configus.password,

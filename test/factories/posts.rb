@@ -9,9 +9,9 @@ FactoryGirl.define do
     text
 
     after(:create) do |post, evaluator|
-      FactoryGirl.create_list(:comment, evaluator.comments_count, :post => post)
+      FactoryGirl.create_list('post/comment', evaluator.comments_count, :post => post)
       post.comments.each do |comment|
-        FactoryGirl.create_list(:comment, evaluator.child_comments_count,
+        FactoryGirl.create_list('post/comment', evaluator.child_comments_count,
           :post => post, :parent => comment)
       end
     end
