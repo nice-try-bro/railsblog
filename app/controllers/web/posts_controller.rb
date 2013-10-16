@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Web::PostsController < Web::ApplicationController
 
   unless Rails.env.test?
     http_basic_authenticate_with :name => configus.user, :password => configus.password,

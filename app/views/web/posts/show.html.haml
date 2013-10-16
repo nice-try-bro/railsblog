@@ -1,5 +1,5 @@
 - model_class = Post
-- comment_model_class = Comment
+- comment_model_class = Post::Comment
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.titleize
 
@@ -16,7 +16,7 @@
 -#FIXME: should be translatable
 %h4= 'Add new ' + comment_model_class.model_name.human.downcase
 -#FIXME: it may be done better
-= render "comments/form"
+= render "web/posts/comments/form"
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), posts_path, :class => 'btn'
