@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CommentsControllerTest < ActionController::TestCase
+class Web::Posts::CommentsControllerTest < ActionController::TestCase
   test "#new" do
     @post = create :post
     @parent_comment = @post.comments.create(attributes_for :comment)
