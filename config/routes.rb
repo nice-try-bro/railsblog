@@ -1,4 +1,13 @@
 Railsblog::Application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      resources :posts, :only => [:index] do
+        scope module: :posts do
+          resources :comments, :only => [:create]
+        end
+      end
+    end
+  end
 
   scope :module => 'web' do
     resources :posts do
