@@ -8,7 +8,7 @@
 %p
   = @post.text
 %p
-  %img{:src => @post.picture}
+  = image_tag @post.picture
 
 %h4=t '.title', :default => comment_model_class.model_name.human.pluralize.titleize
 = nested_comments @post.comments.arrange(:order => :created_at)
