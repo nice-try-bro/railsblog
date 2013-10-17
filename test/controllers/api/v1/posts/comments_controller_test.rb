@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class Api::V1::Posts::CommentsControllerTest < ActionController::TestCase
+  test "#index" do
+    @post = create :post
+    get :index, :post_id => @post.id, :format => :json
+    assert_response :success
+  end
+
   test "#create" do
     @post = create :post
     @comment_attrs = attributes_for 'post/comment'
