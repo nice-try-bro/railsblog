@@ -3,7 +3,7 @@ Railsblog::Application.routes.draw do
     namespace :v1 do
       resources :posts, :only => [:index] do
         scope module: :posts do
-          resources :comments, :only => [:create]
+          resources :comments, :only => [:index, :create]
         end
       end
     end
