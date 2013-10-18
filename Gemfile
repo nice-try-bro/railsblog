@@ -76,3 +76,6 @@ gem 'carrierwave'
 gem 'ancestry'
 
 gem 'cocoon'
+
+# used for breadcrumb navigation
+gem 'breadcrumbs'
