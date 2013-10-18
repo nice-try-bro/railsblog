@@ -19,18 +19,7 @@
 
 
   %body
-    .navbar.navbar-fluid-top
-      .navbar-inner
-        .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="#") Railsblog
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Start page", welcome_index_path
-              %li= link_to "All posts", posts_path
+    = render_breadcrumbs
 
     .container-fluid
 
