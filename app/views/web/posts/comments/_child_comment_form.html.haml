@@ -1,5 +1,5 @@
-= simple_form_for [@post, @comment],
-    :url => post_comments_path(@post) do |f|
+= simple_form_for [@post, @comment], :remote => :true,
+    :url => api_v1_post_comments_path(@post) do |f|
   = f.input :parent_id, :as => :hidden
 
   = f.input :commenter

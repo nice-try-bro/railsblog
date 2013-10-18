@@ -1,5 +1,7 @@
-= simple_form_for [@post, @post.comments.build],
-    :url => post_comments_path(@post) do |f|
+-#NOTE: implicit api version mentioned
+= simple_form_for [@post, @post.comments.build], :remote => :true,
+    :url => api_v1_post_comments_path(@post),
+    :html => { :class => 'comment-form' } do |f|
   = f.input :commenter
   = f.input :body
 
