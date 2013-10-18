@@ -1,9 +1,8 @@
 require 'test_helper'
 
 class Web::WelcomeControllerTest < ActionController::TestCase
-  test "should get index" do
+  test "#index" do
     get :index
     assert_response :success
   end
-
 end
