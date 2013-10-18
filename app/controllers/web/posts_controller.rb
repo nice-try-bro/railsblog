@@ -5,8 +5,12 @@ class Web::PostsController < Web::ApplicationController
                                  :except => [:index, :show]
   end
 
+  add_breadcrumb :posts, :posts_path
+
   def new
     @post = Post.new
+
+    add_breadcrumb :new_post
   end
 
   def create
@@ -21,6 +25,8 @@ class Web::PostsController < Web::ApplicationController
 
   def show
     @post = Post.find(params[:id])
+
+    add_breadcrumb @post.title
   end
 
   def index
@@ -29,6 +35,8 @@ class Web::PostsController < Web::ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+
+    add_breadcrumb :edit_post, @post
   end
 
   def update
