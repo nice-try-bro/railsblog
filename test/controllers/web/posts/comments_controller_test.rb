@@ -13,7 +13,7 @@ class Web::Posts::CommentsControllerTest < ActionController::TestCase
 
   test "#create" do
     @comment_attrs = attributes_for 'post/comment'
-    post :create, :post_id => @post.id, :comment => @comment_attrs
+    post :create, :post_id => @post.id, :post_comment => @comment_attrs
     assert_response :redirect
     @created_comment = @post.comments.find_by(:body => @comment_attrs[:body])
     assert @created_comment
