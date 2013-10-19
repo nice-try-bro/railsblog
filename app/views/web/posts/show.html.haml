@@ -1,24 +1,24 @@
-- model_class = Post
-- comment_model_class = Post::Comment
+- child_model_class = Post::Comment
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
+  %h3= @post.title
 
 %p
-  %h3= @post.title
-%p
   = @post.text
+
 %p
   = image_tag @post.picture
 
-%h4=t '.title', :default => comment_model_class.model_name.human.pluralize.titleize
-= nested_comments @post.comments.arrange(:order => :created_at)
+%h4= child_model_class.model_name.human.pluralize.titleize
+.comments
+  = nested_comments @post.comments
 
--#FIXME: should be translatable
-%h4= 'Add new ' + comment_model_class.model_name.human.downcase
--#FIXME: it may be done better
-= render "web/posts/comments/form"
+%h4= t('.add_comment')
+= render 'web/posts/comments/form'
 
+-#FIXME: translations can't be specified
 .form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), posts_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(@post), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), post_path(@post), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+  = link_to t('back'), posts_path, :class => 'btn'
+  = link_to t('edit'), edit_post_path(@post), :class => 'btn'
+  = link_to t('destroy'), post_path(@post), :method => 'delete',
+      :data => { :confirm => t('helpers.links.confirm')},
+      :class => 'btn btn-danger'
