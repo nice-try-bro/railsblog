@@ -9,6 +9,8 @@ class Web::Posts::CommentsController < Web::Posts::ApplicationController
     @post = Post.find(params[:post_id])
     @parent_comment = @post.comments.find(params[:parent_id])
     @comment = @post.comments.build(:parent_id => @parent_comment.id)
+
+    add_breadcrumb :new_comment
   end
 
   def create
@@ -27,6 +29,6 @@ class Web::Posts::CommentsController < Web::Posts::ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:commenter, :body, :parent_id)
+    params.require(:post_comment).permit(:commenter, :body, :parent_id)
   end
 end

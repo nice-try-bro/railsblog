@@ -1,0 +1,13 @@
+en:
+  breadcrumbs:
+    web:
+      application:
+        home: 'Home'
+      posts:
+        application:
+          posts: 'Posts'
+        posts: 'Posts'
+        new_post: 'New post'
+        edit_post: 'Edit post'
+        comments:
+          new_comment: 'New comment'
