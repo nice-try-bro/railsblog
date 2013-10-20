@@ -11,7 +11,7 @@
   -#FIXME: translations can't be specified
   .links
     = link_to t('reply'), new_post_comment_path(:post_id => comment.post.id,
-        :parent_id => comment.id), :class => 'btn btn-mini'
+        :parent_id => comment.id), :class => 'btn btn-mini reply-to-comment'
     = link_to t('destroy'), post_comment_path(comment.post, comment),
         :method => 'delete', :data => { :confirm => t('helpers.links.confirm') },
         :class => 'btn btn-mini btn-danger'
