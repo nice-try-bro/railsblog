@@ -20,4 +20,25 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  confirm: "Are you sure?"
+  destroy: "Delete"
+  layouts:
+    web:
+      application:
+        create_post: "Create post"
+        posts_list: "Posts list"
+  web:
+    welcome:
+      index:
+        welcome_greeting: "Welcome to Railsblog!"
+    posts:
+      new:
+        new_post: "New post"
+      form:
+        add_comment: "Add comment"
+      show:
+        add_comment: "Add comment"
+
+      comments:
+        new:
+          new_comment: "New comment"
