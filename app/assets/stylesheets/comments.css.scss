@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.comments {
+  max-width: 500px
+}
+
+.comment-body {
+  margin-bottom: 2px;
+  padding-bottom: 2px;
+  border-bottom: 1px dotted blue
+}
+
 .nested-comments {
+  margin-top: 20px;
   margin-left: 20px
 }
