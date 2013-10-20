@@ -1,10 +1,11 @@
 = simple_form_for [@post, @comment], :remote => :true,
     :url => api_v1_post_comments_path(@post) do |f|
+
   = f.input :parent_id, :as => :hidden
 
   = f.input :commenter
   = f.input :body
 
   = f.button :submit
-  -#FIXME: should be translatable or have default attributes
-  = f.button :button, 'Cancel', :type => 'reset'
+  -#FIXME: looks different
+  = link_to t('back'), post_path(@post), :class => 'btn'

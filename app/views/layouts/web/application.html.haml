@@ -27,8 +27,9 @@
         .span3
           .well.sidebar-nav
             %ul.nav.nav-list
-              %li.nav-header Useful links
-              %li= link_to "Create post", new_post_path
+              %li.nav-header= t('.useful_links')
+              %li= link_to t('.posts_list'), posts_path
+              %li= link_to t('.create_post'), new_post_path
         .span9
           = bootstrap_flash
           = yield

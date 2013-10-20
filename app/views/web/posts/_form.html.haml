@@ -1,17 +1,17 @@
-= simple_form_for @post, :wrapper => 'bootstrap', :html => { :class => 'form-horizontal' } do |f|
+- model_class = Post::Comment
+= simple_form_for @post, :html => { :class => 'form-horizontal' } do |f|
   = f.input :title
   = f.input :text
   = f.input :state_event, :as => :fsm_call
   = f.input :picture, :as => :file
 
-  %h3=t '.title', :default => :comments
+  %h3= model_class.model_name.human.pluralize.titleize
   #comments
     = f.simple_fields_for :comments do |comment|
       = render 'comment_fields', :f => comment
-    .links
-      = link_to_add_association t(:add_comment), f, :comments,
-          :render_options => { :wrapper => 'bootstrap' }
 
+    .links
+      = link_to_add_association t('.add_comment'), f, :comments
 
   = f.button :submit
-  = link_to t('.cancel', :default => t("helpers.links.cancel")), posts_path, :class => 'btn'
+  = link_to t('cancel'), posts_path, :class => 'btn'
