@@ -5,7 +5,7 @@ FactoryGirl.define do
       child_comments_count 2
     end
 
-    user
+    author
 
     title
     text
