@@ -5,4 +5,12 @@ class Web::UsersControllerTest < ActionController::TestCase
     get :new
     assert_response :success
   end
+
+  test "#create" do
+    @user_attrs = attributes_for :user
+    post :create, { :user => @user_attrs }
+    assert_response :redirect
+    @created_user = User.find_by(:login => @user_attrs[:login])
+    assert { @created_user }
+  end
 end
