@@ -84,3 +84,6 @@ gem 'cocoon'
 
 # Password encryption
 gem 'bcrypt-ruby', '~> 3.0.0'
+
+# Useful validators
+gem 'validates'
