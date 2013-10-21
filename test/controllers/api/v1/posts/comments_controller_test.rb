@@ -16,6 +16,6 @@ class Api::V1::Posts::CommentsControllerTest < ActionController::TestCase
     post :create, @params.merge(:post_comment => @comment_attrs)
     assert_response :created
     @created_comment = @post.comments.find_by(:body => @comment_attrs[:body])
-    assert @created_comment
+    assert { @created_comment }
   end
 end
