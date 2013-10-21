@@ -20,7 +20,7 @@ class Web::PostsControllerTest < ActionController::TestCase
     post :create, :post => @post_attrs
     assert_response :redirect
     @created_post = Post.find_by(:text => @post_attrs[:text])
-    assert @created_post
+    assert { @created_post }
   end
 
   test "#update" do
@@ -28,7 +28,7 @@ class Web::PostsControllerTest < ActionController::TestCase
     put :update, :id => @post.id, :post => {:text => @new_text}
     assert_response :redirect
     @post.reload
-    assert_equal @new_text, @post.text
+    assert { @new_text == @post.text }
   end
 
   test "#show" do
@@ -44,6 +44,6 @@ class Web::PostsControllerTest < ActionController::TestCase
   test "#destroy" do
     delete :destroy, :id => @post.id
     assert_response :redirect
-    assert !Post.exists?(@post)
+    assert { !Post.exists?(@post) }
   end
 end
