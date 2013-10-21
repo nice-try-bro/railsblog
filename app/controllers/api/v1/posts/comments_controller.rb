@@ -13,6 +13,6 @@ class Api::V1::Posts::CommentsController < Api::V1::Posts::ApplicationController
 
 :private
   def comment_params
-    params.require(:post_comment).permit(:commenter, :body)
+    params.require(:post_comment).permit(:commenter, :body, :parent_id)
   end
 end
