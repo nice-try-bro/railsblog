@@ -30,6 +30,7 @@
               %li.nav-header= t('.useful_links')
               %li= link_to t('.posts_list'), posts_path
               %li= link_to t('.create_post'), new_post_path
+              %li= link_to t('.sign_up'), new_user_path
         .span9
           = bootstrap_flash
           = yield
