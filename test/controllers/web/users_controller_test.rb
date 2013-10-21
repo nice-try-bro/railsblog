@@ -13,4 +13,10 @@ class Web::UsersControllerTest < ActionController::TestCase
     @created_user = User.find_by(:login => @user_attrs[:login])
     assert { @created_user }
   end
+
+  test "#show" do
+    @user = create :user
+    get :show, :id => @user.id
+    assert_response :success
+  end
 end
