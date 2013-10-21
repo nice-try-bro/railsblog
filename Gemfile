@@ -83,4 +83,4 @@ gem 'ancestry'
 gem 'cocoon'
 
 # Password encryption
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', '~> 3.0.0'
