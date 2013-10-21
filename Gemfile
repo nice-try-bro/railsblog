@@ -76,3 +76,6 @@ gem 'carrierwave'
 gem 'ancestry'
 
 gem 'cocoon'
+
+# Password encryption
+gem 'bcrypt-ruby'
