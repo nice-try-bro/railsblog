@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :posts, :foreign_key => :author_id
+
   has_secure_password :validations => false
 
   validates :name, :presence => true
