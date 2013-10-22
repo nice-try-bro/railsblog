@@ -1,0 +1,11 @@
+- model_class = User
+.page-header
+  = t('.profile')
+
+%strong= model_class.human_attribute_name(:name)
+%p
+  = @user.name
+
+%strong= model_class.human_attribute_name(:login)
+%p
+  = @user.login
