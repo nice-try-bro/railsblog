@@ -13,6 +13,11 @@ group :development do
   gem 'bullet'
 end
 
+group :test do
+  # asserts with predicates ans rich verbose
+  gem 'wrong'
+end
+
 gem 'twitter-bootstrap-rails'
 
 group :doc do
@@ -76,6 +81,3 @@ gem 'carrierwave'
 gem 'ancestry'
 
 gem 'cocoon'
-
-# used for breadcrumb navigation
-gem 'breadcrumbs'

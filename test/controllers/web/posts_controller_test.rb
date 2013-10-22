@@ -1,53 +1,49 @@
 require 'test_helper'
 
 class Web::PostsControllerTest < ActionController::TestCase
+  setup do
+    @post = create :post
+  end
+
   test "#new" do
     get :new
     assert_response :success
   end
 
   test "#index" do
-    create :post
     get :index
     assert_response :success
   end
 
   test "#create" do
-    new_post = build :post
-    post :create, :post => new_post.attributes
+    @post_attrs = attributes_for :post
+    post :create, :post => @post_attrs
     assert_response :redirect
-    created_post = Post.find_by(:text => new_post.text)
-    assert_equal new_post.text, created_post.text
+    @created_post = Post.find_by(:text => @post_attrs[:text])
+    assert { @created_post }
   end
 
   test "#update" do
-    new_post = create :post
-    new_text = generate :text
-    new_post.text = new_text
-    put :update, :id => new_post.id, :post => new_post.attributes
+    @new_text = generate :text
+    put :update, :id => @post.id, :post => {:text => @new_text}
     assert_response :redirect
-    new_post.reload
-    assert_equal new_text, new_post.text
+    @post.reload
+    assert { @new_text == @post.text }
   end
 
   test "#show" do
-    new_post = create :post
-    get :show, :id => new_post.id
+    get :show, :id => @post.id
     assert_response :success
   end
 
   test "#edit" do
-    new_post = create :post
-    get :edit, :id => new_post.id
+    get :edit, :id => @post.id
     assert_response :success
   end
 
   test "#destroy" do
-    new_post = create :post
-    post_id = new_post.id
-    delete :destroy, :id => new_post.id
+    delete :destroy, :id => @post.id
     assert_response :redirect
-    #NOTE: new_post object may be used instead of post_id
-    assert !Post.exists?(post_id)
+    assert { !Post.exists?(@post) }
   end
 end
