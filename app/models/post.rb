@@ -15,4 +15,6 @@ class Post < ActiveRecord::Base
       transition :published => :hidden
     end
   end
+
+  include PostRepository
 end
