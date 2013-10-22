@@ -24,13 +24,13 @@ class Web::PostsController < Web::ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id]).decorate
 
     add_breadcrumb @post.title
   end
 
   def index
-    @posts = Post.published
+    @posts = Post.published.decorate
   end
 
   def edit
