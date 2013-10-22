@@ -89,3 +89,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'validates'
 
 gem 'rails-observers'
+
+# Decorators
+gem 'draper', '~> 1.0'

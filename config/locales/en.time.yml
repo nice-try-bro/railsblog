@@ -1,0 +1,4 @@
+en:
+  time:
+    formats:
+      compact: "%a, %m-%d-%Y"

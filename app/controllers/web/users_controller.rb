@@ -2,7 +2,7 @@ class Web::UsersController < Web::ApplicationController
   add_breadcrumb :authors, :users_path
 
   def index
-    @users = User.all
+    @users = User.all.decorate
   end
 
   def new
@@ -22,7 +22,7 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]).decorate
 
     add_breadcrumb @user.login
   end
