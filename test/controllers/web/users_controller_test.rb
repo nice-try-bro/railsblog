@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class Web::UsersControllerTest < ActionController::TestCase
+  test "#index" do
+    create_list :user, 5
+    get :index
+    assert_response :success
+  end
+
   test "#new" do
     get :new
     assert_response :success
