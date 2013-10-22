@@ -4,4 +4,9 @@ FactoryGirl.define do
 
   sequence(:commenter) { |n| "Commenter #{n}" }
   sequence(:body) { |n| "Comment body #{n}" }
+
+  sequence(:name) { |n| "username#{n}" }
+  sequence(:email) { |n| "user#{n}@example.com" }
+  sequence(:login) { |n| "login#{n}" }
+  sequence(:password) { |n| "passphrase#{n}" }
 end

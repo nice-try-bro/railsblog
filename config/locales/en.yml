@@ -27,10 +27,15 @@ en:
       application:
         create_post: "Create post"
         posts_list: "Posts list"
+        sign_up: 'Sign up'
+        authors: 'Authors'
   web:
     welcome:
       index:
         welcome_greeting: "Welcome to Railsblog!"
+    users:
+      index:
+        registration_date: 'Registration date'
     posts:
       new:
         new_post: "New post"

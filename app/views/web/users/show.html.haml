@@ -1,0 +1,15 @@
+- model_class = User
+.page-header
+  %h3= t('.profile')
+
+%strong= model_class.human_attribute_name(:login)
+%p
+  = @user.login
+
+%strong= model_class.human_attribute_name(:name)
+%p
+  = @user.name
+
+%strong= t('.registration_date')
+%p
+  = l(@user.created_at)
