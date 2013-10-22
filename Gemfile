@@ -87,3 +87,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Useful validators
 gem 'validates'
+
+# Decorators
+gem 'draper', '~> 1.0'
