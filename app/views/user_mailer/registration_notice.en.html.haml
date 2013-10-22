@@ -1,0 +1,10 @@
+%h1= "Welcome to RailsBlog!"
+%br
+%p
+  = "Hello, #{@user.name}!"
+  %br
+  You have successfully signed up to
+  = link_to 'Beautiful blog', @host
+  %br
+  Your username is:
+  %br= @user.login
