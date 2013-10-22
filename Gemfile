@@ -92,3 +92,6 @@ gem 'rails-observers'
 
 # Decorators
 gem 'draper', '~> 1.0'
+
+# Pagination
+gem 'kaminari'
