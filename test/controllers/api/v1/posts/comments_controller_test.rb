@@ -2,7 +2,8 @@ require 'test_helper'
 
 class Api::V1::Posts::CommentsControllerTest < ActionController::TestCase
   def setup
-    @post = create :post
+    @comment = create 'post/comment'
+    @post = @comment.post
     @params = { :post_id => @post.id, :format => :json }
   end
 
