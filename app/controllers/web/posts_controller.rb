@@ -30,8 +30,9 @@ class Web::PostsController < Web::ApplicationController
   end
 
   def index
+    @q = Post.published.ransack(params[:q])
     @paging_attrs = {} || configus.paging.post.attrs.to_hash
-    posts = Post.published.page(params[:page])
+    posts = @q.result.page(params[:page])
       .per(configus.paging.post.per_page)
     @posts = posts.decorate
   end
