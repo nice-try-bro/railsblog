@@ -13,7 +13,7 @@ Railsblog::Application.routes.draw do
     resources :users
     resources :posts do
       scope :module => 'posts' do
-        resources :comments, :only => [:index, :new, :create, :destroy]
+        resources :comments, :only => [:index, :new, :destroy]
       end
     end
   end
