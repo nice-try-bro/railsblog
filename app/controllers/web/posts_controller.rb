@@ -30,7 +30,10 @@ class Web::PostsController < Web::ApplicationController
   end
 
   def index
-    @posts = Post.published.decorate
+    @paging_attrs = {} || configus.paging.post.attrs.to_hash
+    posts = Post.published.page(params[:page])
+      .per(configus.paging.post.per_page)
+    @posts = posts.decorate
   end
 
   def edit
