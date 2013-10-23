@@ -95,3 +95,6 @@ gem 'draper', '~> 1.0'
 
 # Pagination
 gem 'kaminari'
+
+# For search forms
+gem 'ransack'
