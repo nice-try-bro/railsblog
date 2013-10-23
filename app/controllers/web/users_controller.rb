@@ -2,7 +2,8 @@ class Web::UsersController < Web::ApplicationController
   add_breadcrumb :authors, :users_path
 
   def index
-    @users = User.all.page(params[:page]).decorate
+    @q = User.ransack(params[:q])
+    @users = @q.result.page(params[:page]).decorate
   end
 
   def new

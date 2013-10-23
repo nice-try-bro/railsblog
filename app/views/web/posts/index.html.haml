@@ -3,29 +3,43 @@
 .page-header
   %h1= model_class.model_name.human.pluralize.titleize
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th= model_class.human_attribute_name(:title)
-      %th= model_class.human_attribute_name(:text)
-      %th= model_class.human_attribute_name(:state)
-      %th= model_class.human_attribute_name(:created_at)
-      %th= t('.actions')
-  %tbody
-    - @posts.each do |post|
+- if @posts.any?
+  %table.table.table-striped
+    %thead
       %tr
-        %td= link_to post.title, post
-        %td= truncate post.text
-        %td= post.state
-        %td= post.pretty_created_at
-        %td
-          -#FIXME: translations can't be specified
-          = link_to t('edit'), edit_post_path(post),
-              :class => 'btn btn-mini'
-          = link_to t('destroy'), post_path(post), :method => :delete,
-              :data => { :confirm => 'helpers.links.confirm' },
-              :class => 'btn btn-mini btn-danger'
+        %th= model_class.human_attribute_name(:title)
+        %th= model_class.human_attribute_name(:text)
+        %th= model_class.human_attribute_name(:state)
+        %th= model_class.human_attribute_name(:created_at)
+        %th= t('.actions')
+    %tbody
+      - @posts.each do |post|
+        %tr
+          %td= link_to post.title, post
+          %td= post.preview_text
+          %td= post.state
+          %td= post.created_at
+          %td
+            -#FIXME: translations can't be specified
+            = link_to t('edit'), edit_post_path(post),
+                :class => 'btn btn-mini'
+            = link_to t('destroy'), post_path(post), :method => :delete,
+                :data => { :confirm => 'helpers.links.confirm' },
+                :class => 'btn btn-mini btn-danger'
+- else
+  %h4= t('.no_posts_found')
 
 = paginate @posts
 
 = link_to t('new'), new_post_path, :class => 'btn btn-primary'
+
+%h5= t('.search_users')
+= search_form_for @q, :html => { :class => 'search-form' } do |f|
+  = f.label :title_cont
+  = f.text_field :title_cont
+  = f.label :created_at_in
+  -#FIXME: should be formatted better
+  = f.text_field :created_at_gt
+  = f.text_field :created_at_lt
+  %br
+  = f.submit

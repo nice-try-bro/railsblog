@@ -36,14 +36,16 @@ en:
     users:
       index:
         registration_date: 'Registration date'
+        no_users_found: "No users found"
     posts:
+      index:
+        no_posts_found: "No posts found"
       new:
         new_post: "New post"
       form:
         add_comment: "Add comment"
       show:
         add_comment: "Add comment"
-
       comments:
         new:
           new_comment: "New comment"

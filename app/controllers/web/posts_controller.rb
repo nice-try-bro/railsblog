@@ -30,7 +30,8 @@ class Web::PostsController < Web::ApplicationController
   end
 
   def index
-    @posts = Post.published.page(params[:page]).decorate
+    @q = Post.published.ransack(params[:q])
+    @posts = @q.result.page(params[:page]).decorate
   end
 
   def edit
