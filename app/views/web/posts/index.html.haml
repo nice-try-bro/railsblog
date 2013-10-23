@@ -15,9 +15,9 @@
     - @posts.each do |post|
       %tr
         %td= link_to post.title, post
-        %td= post.text
+        %td= post.preview_text
         %td= post.state
-        %td=l post.created_at
+        %td= post.created_at
         %td
           -#FIXME: translations can't be specified
           = link_to t('edit'), edit_post_path(post),
@@ -25,5 +25,7 @@
           = link_to t('destroy'), post_path(post), :method => :delete,
               :data => { :confirm => 'helpers.links.confirm' },
               :class => 'btn btn-mini btn-danger'
+
+= paginate @posts, @paging_attrs
 
 = link_to t('new'), new_post_path, :class => 'btn btn-primary'

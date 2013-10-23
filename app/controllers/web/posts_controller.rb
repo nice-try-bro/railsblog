@@ -24,13 +24,16 @@ class Web::PostsController < Web::ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id]).decorate
 
     add_breadcrumb @post.title
   end
 
   def index
-    @posts = Post.all
+    @paging_attrs = {} || configus.paging.post.attrs.to_hash
+    posts = Post.published.page(params[:page])
+      .per(configus.paging.post.per_page)
+    @posts = posts.decorate
   end
 
   def edit
@@ -59,7 +62,7 @@ class Web::PostsController < Web::ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text, :state_event, :picture,
+    params.require(:post).permit(:title, :text, :state_event, :picture, :author_id,
       :comments_attributes => [:id, :commenter, :body, :_destroy])
   end
 end

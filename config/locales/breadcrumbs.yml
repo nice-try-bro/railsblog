@@ -3,6 +3,9 @@ en:
     web:
       application:
         home: 'Home'
+      users:
+        authors: 'Authors'
+        new_author: 'Sign up'
       posts:
         application:
           posts: 'Posts'
