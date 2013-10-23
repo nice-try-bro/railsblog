@@ -3,17 +3,28 @@
 .page-header
   %h1= model_class.model_name.human.pluralize.titleize
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th= model_class.human_attribute_name(:login)
-      %th= model_class.human_attribute_name(:name)
-      %th= t('.registration_date')
-  %tbody
-    - @users.each do |user|
+- if @users.any?
+  %table.table.table-striped
+    %thead
       %tr
-        %td= link_to user.login, user
-        %td= user.name
-        %td= user.pretty_created_at
+        %th= model_class.human_attribute_name(:login)
+        %th= model_class.human_attribute_name(:name)
+        %th= t('.registration_date')
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= link_to user.login, user
+          %td= user.name
+          %td= user.created_at
+- else
+  %h4= t('.no_users_found')
 
 = paginate @users
+
+%h5= t('.search_users')
+= search_form_for @q, :html => { :class => 'search-form' } do |f|
+  = f.label :name_cont
+  = f.text_field :name_cont
+  = f.label :login_cont
+  = f.text_field :login_cont
+  = f.submit

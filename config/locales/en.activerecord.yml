@@ -1,5 +1,8 @@
 en:
   activerecord:
+    attributes:
+      post:
+        created_at: 'Creation date'
     errors:
       models:
         user:
