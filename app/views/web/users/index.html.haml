@@ -15,7 +15,7 @@
         %tr
           %td= link_to user.login, user
           %td= user.name
-          %td= user.created_at
+          %td= user.pretty_created_at
 - else
   %h4= t('.no_users_found')
 
