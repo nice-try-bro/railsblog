@@ -26,4 +26,6 @@
               :data => { :confirm => 'helpers.links.confirm' },
               :class => 'btn btn-mini btn-danger'
 
+= paginate @posts, @paging_attrs
+
 = link_to t('new'), new_post_path, :class => 'btn btn-primary'
