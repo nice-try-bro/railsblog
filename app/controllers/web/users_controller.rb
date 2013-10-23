@@ -2,9 +2,7 @@ class Web::UsersController < Web::ApplicationController
   add_breadcrumb :authors, :users_path
 
   def index
-    @paging_attrs = {} || configus.paging.user.attrs.to_hash
-    users = User.all.page(params[:page]).per(configus.paging.user.per_page)
-    @users = users.decorate
+    @users = User.all.page(params[:page]).decorate
   end
 
   def new

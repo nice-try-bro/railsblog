@@ -14,6 +14,6 @@
       %tr
         %td= link_to user.login, user
         %td= user.name
-        %td= user.created_at
+        %td= user.pretty_created_at
 
-= paginate @users, @paging_attrs
+= paginate @users
