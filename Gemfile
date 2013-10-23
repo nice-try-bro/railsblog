@@ -98,3 +98,6 @@ gem 'kaminari'
 
 # For search forms
 gem 'ransack'
+
+# Makes routes available from JS
+gem 'js-routes'

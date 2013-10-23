@@ -3,5 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('.comment-form').on("ajax:success", ->
-    location.reload())
+  $('.comment-form').on("ajax:success", (event, jqXHR, textStatus) ->
+    protocol = location.protocol
+    host = location.host
+    fullHost = protocol + '//' + host
+    window.location = fullHost + Routes.post_path jqXHR.post_id)
