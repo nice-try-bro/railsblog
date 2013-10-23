@@ -17,7 +17,7 @@
         %td= link_to post.title, post
         %td= post.preview_text
         %td= post.state
-        %td= post.created_at
+        %td= post.pretty_created_at
         %td
           -#FIXME: translations can't be specified
           = link_to t('edit'), edit_post_path(post),
