@@ -12,11 +12,6 @@ class Api::V1::Posts::CommentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "#new" do
-    get :new, @params.merge(:parent_id => @comment.id)
-    assert_response :success
-  end
-
   test "#create" do
     @comment_attrs = attributes_for 'post/comment'
     post :create, @params.merge(:post_comment => @comment_attrs)
