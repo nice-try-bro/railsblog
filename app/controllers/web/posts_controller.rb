@@ -24,13 +24,14 @@ class Web::PostsController < Web::ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id]).decorate
 
     add_breadcrumb @post.title
   end
 
   def index
-    @posts = Post.all
+    @q = Post.published.ransack(params[:q])
+    @posts = @q.result.page(params[:page]).decorate
   end
 
   def edit
@@ -59,7 +60,7 @@ class Web::PostsController < Web::ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text, :state_event, :picture,
+    params.require(:post).permit(:title, :text, :state_event, :picture, :author_id,
       :comments_attributes => [:id, :commenter, :body, :_destroy])
   end
 end

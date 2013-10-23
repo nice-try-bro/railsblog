@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    attributes:
+      post:
+        created_at: 'Creation date'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              #FIXME: may be more global
+              email: 'Invalid e-mail address'

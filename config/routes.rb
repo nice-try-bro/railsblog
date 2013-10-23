@@ -10,6 +10,7 @@ Railsblog::Application.routes.draw do
   end
 
   scope :module => 'web' do
+    resources :users
     resources :posts do
       scope :module => 'posts' do
         resources :comments, :only => [:index, :new, :create, :destroy]

@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  belongs_to :author, :class_name => 'User'
   has_many :comments, :dependent => :destroy
   validates :title, :presence => true,
                     :length => { :minimum => 5 }
@@ -15,4 +16,6 @@ class Post < ActiveRecord::Base
       transition :published => :hidden
     end
   end
+
+  include PostRepository
 end
