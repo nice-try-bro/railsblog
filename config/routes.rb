@@ -1,7 +1,7 @@
 Railsblog::Application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :posts, :only => [:index] do
+      resources :posts, :only => [:index, :show] do
         scope module: :posts do
           resources :comments, :only => [:index, :create]
         end
