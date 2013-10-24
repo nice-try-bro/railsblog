@@ -13,7 +13,7 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = UserRegistrationType.new(user_params)
 
     if @user.save
       redirect_to @user
@@ -31,6 +31,7 @@ class Web::UsersController < Web::ApplicationController
 :private
 
   def user_params
-    params.require(:user).permit(:name, :login, :email, :password)
+    params.require(:user).permit(:name, :login, :email,
+      :password, :password_confirmation)
   end
 end

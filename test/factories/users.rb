@@ -10,6 +10,8 @@ FactoryGirl.define do
     email
     login
     password
+    #NOTE: not required for user model in general
+    password_confirmation { password }
 
     after(:create) do |user, evaluator|
       FactoryGirl.create_list(:post, evaluator.posts_count, :author => user)
