@@ -9,6 +9,7 @@ FactoryGirl.define do
 
     title
     text
+    state
 
     after(:create) do |post, evaluator|
       FactoryGirl.create_list('post/comment', evaluator.comments_count, :post => post)
