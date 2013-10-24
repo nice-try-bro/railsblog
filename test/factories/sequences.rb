@@ -4,7 +4,10 @@ FactoryGirl.define do
 
   sequence(:commenter) { |n| "Commenter #{n}" }
   sequence(:body) { |n| "Comment body #{n}" }
-
+  sequence(:state) do |n|
+    states_array = Post.state_machine.states.to_a
+    states_array[n % states_array.count].name
+  end
   sequence(:name) { |n| "username#{n}" }
   sequence(:email) { |n| "user#{n}@example.com" }
   sequence(:login) { |n| "login#{n}" }
